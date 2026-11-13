@@ -1,43 +1,202 @@
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jelajah Komponen Komputer</title>
+
 <style>
-  body{font-family:Arial,sans-serif;background:#0f172a;color:white;text-align:center;padding:20px}
-  h1{color:#38bdf8} p{color:#cbd5e1}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:20px auto}
-  button{background:#1e293b;border:2px solid #38bdf8;color:white;padding:18px;border-radius:12px;font-size:16px;cursor:pointer}
-  button:hover{background:#38bdf8;color:#0f172a}
-  #box{background:white;color:#0f172a;padding:20px;border-radius:12px;max-width:600px;margin:20px auto;text-align:left;min-height:140px}
-  #box h2{margin:0 0 10px;color:#0284c7}
-  .footer{font-size:12px;color:#94a3b8;margin-top:20px}
+
+/* FONT */
+@font-face {
+  font-family: 'KomputerHTML';
+  src: url('04B_30__.ttf') format('truetype');
+}
+
+body {
+  font-family: 'KomputerHTML', Arial, sans-serif;
+  background: #790D16;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #F5EFE1;
+}
+
+p {
+  color: #F5EFE1;
+}
+
+/* TOMBOL KOMPONEN */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+button {
+  font-family: 'KomputerHTML', Arial, sans-serif;
+  background: #F5EFE1;
+  border: 2px solid #0B1849;
+  color: #0B1849;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #95271D;
+  color: white;
+}
+
+/* KOTAK PENJELASAN */
+#box {
+  background: white;
+  color: #0B1849;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  min-height: 140px;
+  font-family: Arial, sans-serif;
+}
+
+#box h2 {
+  margin: 0 0 10px;
+  color: #0D1C42;
+}
+
+#box p {
+  color: #0B1849;
+  line-height: 1.6;
+}
+
+/* GAMBAR KOMPONEN */
+#box img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+.footer {
+  font-size: 12px;
+  color: #F5EFE1;
+  margin-top: 20px;
+}
+
 </style>
 </head>
+
 <body>
-  <h1>🖥️ Jelajah Komponen Komputer</h1>
-  <p>Klik salah satu komponen untuk melihat fungsinya - UTS Arsitektur dan Organisasi Komputer</p>
-  <div class="grid">
-    <button onclick="show('CPU')">🧠 CPU</button>
-    <button onclick="show('RAM')">⚡ RAM</button>
-    <button onclick="show('Motherboard')">🔌 Motherboard</button>
-    <button onclick="show('Storage')">💾 Storage</button>
-    <button onclick="show('GPU')">🎮 GPU / VGA</button>
-    <button onclick="show('PSU')">🔋 PSU</button>
-  </div>
-  <div id="box"><h2>Silahkan pilih komponen di atas</h2><p>Penjelasan fungsi akan muncul di sini.</p></div>
-  <div class="footer">Dibuat oleh [Nama Kamu] - [NIM] - Teknik Informatika</div>
+
+<h1>🖥️ Jelajah Komponen Komputer</h1>
+
+<p>
+Klik salah satu komponen untuk melihat
+fungsi dan gambarnya - UTS Arsitektur dan Organisasi Komputer
+</p>
+
+<div class="grid">
+
+  <button onclick="show('CPU')">🧠 CPU</button>
+
+  <button onclick="show('RAM')">⚡ RAM</button>
+
+  <button onclick="show('Motherboard')">🔌 Motherboard</button>
+
+  <button onclick="show('Storage')">💾 Storage</button>
+
+  <button onclick="show('GPU')">🎮 GPU / VGA</button>
+
+  <button onclick="show('PSU')">🔋 PSU</button>
+
+</div>
+
+<div id="box">
+  <h2>Silakan pilih komponen di atas</h2>
+  <p>Penjelasan fungsi akan muncul di sini.</p>
+</div>
+
+<div class="footer">
+  Dibuat oleh Tarisa Melati Bunga Setaman -
+  312600111 - Teknik Informatika
+</div>
+
 <script>
-  const data={
-    CPU:{t:"CPU - Central Processing Unit",d:"Otak komputer. Memproses semua perintah dan perhitungan. Di dalamnya ada Control Unit, ALU, dan Register. Semakin cepat CPU, semakin cepat komputer bekerja."},
-    RAM:{t:"RAM - Random Access Memory",d:"Memori sementara / meja kerja. Menyimpan data aplikasi yang sedang dibuka agar bisa diakses cepat. Data akan hilang saat komputer dimatikan."},
-    Motherboard:{t:"Motherboard",d:"Papan utama / sistem saraf. Menghubungkan CPU, RAM, Storage, dan GPU agar bisa saling bertukar data melalui jalur Bus."},
-    Storage:{t:"Storage - SSD / HDD",d:"Gudang penyimpanan permanen. Menyimpan semua file, foto, dan aplikasi. SSD lebih cepat dari HDD karena tidak memakai piringan berputar."},
-    GPU:{t:"GPU - Graphics Processing Unit",d:"Pengolah grafis / VGA. Khusus mengolah gambar dan video. Sangat penting untuk gaming, editing video, dan desain agar gambar tidak patah-patah."},
-    PSU:{t:"PSU - Power Supply Unit",d:"Pemberi daya / jantung. Mengubah listrik dari stop kontak menjadi daya yang sesuai untuk setiap komponen. PSU yang stabil menjaga komponen tetap awet."}
-  };
-  function show(k){document.getElementById('box').innerHTML='<h2>'+data[k].t+'</h2><p>'+data[k].d+'</p>'}
+
+/* DATA KOMPONEN KOMPUTER */
+
+const data = {
+
+  CPU: {
+    t: "CPU - Central Processing Unit",
+    img: "cpu.jpg",
+    d: "Otak komputer. Memproses semua perintah dan perhitungan. Di dalamnya ada Control Unit, ALU, dan Register. Semakin cepat CPU, semakin cepat komputer bekerja."
+  },
+
+  RAM: {
+    t: "RAM - Random Access Memory",
+    img: "ram.jpg",
+    d: "Memori sementara atau meja kerja. Menyimpan data aplikasi yang sedang dibuka agar bisa diakses dengan cepat. Data akan hilang saat komputer dimatikan."
+  },
+
+  Motherboard: {
+    t: "Motherboard",
+    img: "motherboard.jpg",
+    d: "Papan utama atau sistem saraf. Menghubungkan CPU, RAM, Storage, dan GPU agar bisa saling bertukar data melalui jalur Bus."
+  },
+
+  Storage: {
+    t: "Storage - SSD / HDD",
+    img: "storage.jpg",
+    d: "Gudang penyimpanan permanen. Menyimpan semua file, foto, dan aplikasi. SSD lebih cepat dari HDD karena tidak memakai piringan berputar."
+  },
+
+  GPU: {
+    t: "GPU - Graphics Processing Unit",
+    img: "VGA.jpg",
+    d: "Pengolah grafis atau VGA. Khusus mengolah gambar dan video. Sangat penting untuk gaming, editing video, dan desain."
+  },
+
+  PSU: {
+    t: "PSU - Power Supply Unit",
+    img: "psu.jpg",
+    d: "Pemberi daya. Mengubah listrik dari stop kontak menjadi daya yang sesuai untuk setiap komponen. PSU yang stabil membantu menjaga komponen komputer."
+  }
+
+};
+
+/* FUNGSI MENAMPILKAN GAMBAR DAN PENJELASAN */
+
+function show(k) {
+
+  document.getElementById('box').innerHTML =
+
+    '<h2>' + data[k].t + '</h2>' +
+
+    '<img src="' + data[k].img +
+    '" alt="' + data[k].t +
+    '" onerror="this.alt=\'Gambar belum ditemukan\'; this.style.display=\'none\';">' +
+
+    '<p>' + data[k].d + '</p>';
+
+}
+
 </script>
+
 </body>
 </html>
